@@ -21,7 +21,7 @@ const Heading = ({ children, className }) => {
       });
     }, h2Ref);
 
-    return () => ctx.revert(); // Cleanup on unmount
+    return () => ctx.revert();
   }, []);
   return (
     <h2

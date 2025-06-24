@@ -19,13 +19,11 @@ const Works = () => {
   const cardsRef = useRef([]);
 
   useEffect(() => {
-    // Clear previous refs
     cardsRef.current = cardsRef.current.slice(0, worksList.length);
 
     const mm = gsap.matchMedia();
 
     mm.add("(max-width: 768px)", () => {
-      // Mobile: animate cards one by one as they scroll into view
       cardsRef.current.forEach((card, idx) => {
         gsap.fromTo(
           card,
@@ -47,7 +45,6 @@ const Works = () => {
     });
 
     mm.add("(min-width: 769px)", () => {
-      // Desktop: stagger animation for all cards
       gsap.fromTo(
         cardsRef.current,
         { opacity: 0, y: 50, filter: "blur(5px)" },
@@ -66,7 +63,7 @@ const Works = () => {
       );
     });
 
-    return () => mm.revert(); // Cleanup on unmount
+    return () => mm.revert();
   }, []);
 
   return (
