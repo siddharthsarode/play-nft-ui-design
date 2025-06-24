@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Sora";
+  src: url(./assets/fonts/Sora-VariableFont_wght.ttf) format(truetype);
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(./assets/fonts/Inter-VariableFont_opsz\wght.ttf) format(truetype);
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url(./assets/fonts/Poppins-Regular.ttf) format(truetype);
+}
+
+@theme {
+  --color-blue: #3b82f6; /* Buttons, highlights */
+  --color-deep-navy: #0a0e1e; /* Main background */
+  --color-soft-dark-blue: #0d1023; /* Section background */
+  --color-purple: #5b25c7; /* Glow effect */
+  --color-neon-pink: #ec4899; /* Accent */
+  --color-white: #ffffff; /* Headings, base text */
+  --color-light: #d1d5db; /* Subtext */
+  --color-pink: #09a0e2;
+
+  /* Fonts */
+  --font-sora: "Sora";
+  --font-inter: "Inter";
+  --font-poppins: "Poppins";
+
+  /* Animation config */
+  --animate-marquee: "marquee 40s linear infinite";
+  --animate-marquee-reverse: "marquee-reverse 40s linear infinite";
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 20px 10px rgba(255, 255, 255, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}

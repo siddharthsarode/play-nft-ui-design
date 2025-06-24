@@ -1,0 +1,15 @@
+/* Make center slide scale up */
+.slick-center .slide-item {
+  transform: scale(1.15);
+  z-index: 2;
+}
+
+.slick-center .slide-item img {
+  box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.2);
+}
+
+/* Optional: reduce size of non-center */
+.slide-item {
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
